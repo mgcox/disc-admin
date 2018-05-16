@@ -2,22 +2,16 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th class="table-id">#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Age</th>
+      <th class="table-id">ID</th>
+      <th>Balance</th>
+      <th>Owner</th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="item in smartTableData">
-      <td class="table-id">{{item.id}}</td>
-      <td>{{item.firstName}}</td>
-      <td>{{item.lastName}}</td>
-      <td>{{item.username}}</td>
-      <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
-      <td>{{item.age}}</td>
+      <td class="table-id">{{item.walletId}}</td>
+      <td>{{item.balance}}</td>
+      <td>{{item.owner}}</td>
     </tr>
     </tbody>
   </table>
