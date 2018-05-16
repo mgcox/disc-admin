@@ -24,7 +24,7 @@
         }).state('tables.basic', {
           url: '/basic',
           templateUrl: 'app/pages/tables/basic/tables.html',
-          title: 'Basic Tables',
+          title: 'Data Tables',
           sidebarMeta: {
             order: 0,
           },
