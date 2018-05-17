@@ -31,7 +31,7 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
-  background: #000000;
+  background: #364E57;
   backface-visibility: hidden;
   & > div {
     display: block;
@@ -43,7 +43,7 @@
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $danger;
+    border-top-color: $primary;
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
@@ -70,7 +70,7 @@
       bottom: 15px;
       border-radius: 50%;
       border: 3px solid transparent;
-      border-top-color: $warning;
+      border-top-color: $primary;
       animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
     }
   }
