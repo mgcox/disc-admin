@@ -15,18 +15,18 @@
       var dashboardColors = baConfig.colors.dashboard;
       $scope.doughnutData = {
           labels: [
-              'Other',
-              'Search engines',
-              'Referral Traffic',
-              'Direct Traffic',
-              'Ad Campaigns'
+              'Customers',
+              'Franchises',
+              'Exchanges',
+              'Corporate',
+              'Disc'
           ],
           datasets: [
               {
                   data: [2000, 1500, 1000, 1200, 400],
                   backgroundColor: [
                       dashboardColors.white,
-                      dashboardColors.blueStone,
+                      dashboardColors.silverTree,
                       dashboardColors.surfieGreen,
                       dashboardColors.silverTree,
                       dashboardColors.gossip
