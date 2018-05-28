@@ -11,15 +11,29 @@
   /** @ngInject */
   function TablesPageCtrl($scope, $filter, $http, editableOptions, editableThemes) {
 
-    $scope.smartTablePageSize = 10;
+
+
+    $scope.smartTablePageSize = 20;
 
     $http.get('/api/Wallet').then(function successCallback(response) {
     // this callback will be called asynchronously
     // when the response is available
       console.log('success');
-      console.log(response);
+      
 
-      $scope.smartTableData = response.data
+      $scope.smartTableData = response.data;
+      $scope.smartTableData1 = response.data;
+
+  
+          var total = 0;
+          for(var i = 0; i < $scope.smartTableData.length; i++){
+              var balance = $scope.smartTableData[i].balance;
+              total += balance;
+          }
+          console.log(total)
+          return total;
+
+     
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.

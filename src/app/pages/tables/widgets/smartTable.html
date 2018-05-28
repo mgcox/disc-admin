@@ -6,38 +6,28 @@
       </select>
     </label>
   </div>
-  <table class="table" st-table="smartTableData">
+  <table class="table" st-table="smartTableData" st-safe-src="smartTableData1">
     <thead>
     <tr class="sortable ">
-      <th class="table-id" st-sort="id" st-sort-default="true">#</th>
-      <th st-sort="firstName">First Name</th>
-      <th st-sort="lastName">Last Name</th>
-      <th st-sort="username">Username</th>
-      <th st-sort="email">Email</th>
-      <th st-sort="age">Age</th>
+      <th class="table-id" st-sort="walletId" st-sort-default="true">Wallet ID</th>
+      <th st-sort="balance">Balance</th>
+      <th st-sort="owner">Owner</th>
+      <th>Actions</th>
     </tr>
     <tr>
-      <th></th>
-      <th><input st-search="firstName" placeholder="Search First Name" class="input-sm form-control search-input"
+      <th><input st-search="walletId" placeholder="Search Wallet Id" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="lastName" placeholder="Search Last Name" class="input-sm form-control search-input"
+      <th><input st-search="balance" placeholder="Search Last Name" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="username" placeholder="Search Username" class="input-sm form-control search-input"
+      <th><input st-search="owner" placeholder="Search Username" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input" type="search"/>
-      </th>
-      <th><input st-search="age" placeholder="Search Age" class="input-sm form-control search-input" type="search"/>
-      </th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="item in smartTableData">
-      <td class="table-id">{{item.id}}</td>
-      <td>{{item.firstName}}</td>
-      <td>{{item.lastName}}</td>
-      <td>{{item.username}}</td>
-      <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
-      <td>{{item.age}}</td>
+      <td class="table-id">{{item.walletId}}</td>
+      <td>{{item.balance}}</td>
+      <td>{{item.owner}}</td>
     </tr>
     </tbody>
     <tfoot>

@@ -32,7 +32,9 @@
         .state('form.layouts', {
           url: '/layouts',
           templateUrl: 'app/pages/form/layouts/layouts.html',
-          title: 'Form Layouts',
+          title: 'Creation Forms',
+          controller: 'BasicFormCtrl',
+          controllerAs: 'vm',
           sidebarMeta: {
             order: 100,
           },

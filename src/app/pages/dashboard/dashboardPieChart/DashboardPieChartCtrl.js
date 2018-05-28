@@ -9,7 +9,14 @@
       .controller('DashboardPieChartCtrl', DashboardPieChartCtrl);
 
   /** @ngInject */
-  function DashboardPieChartCtrl($scope, $timeout, baConfig, baUtil) {
+  function DashboardPieChartCtrl($scope, $http,$timeout, baConfig, baUtil) {
+
+    var custTotal = 0;
+    var customerAccounts = 0;
+    var purchases = 0;
+
+
+
     var pieColor = baUtil.hexToRGB(baConfig.colors.defaultText, 0.2);
     $scope.charts = [{
       color: pieColor,
@@ -19,7 +26,7 @@
     }, {
       color: pieColor,
       description: 'Available Funds',
-      stats: '$ 89,745',
+      stats: '$ ' + 0,
       icon: 'money',
     }, {
       color: pieColor,
@@ -33,6 +40,139 @@
       icon: 'refresh',
     }
     ];
+
+    $http.get('/api/Wallet').then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+      console.log('success');
+      
+
+      $scope.smartTableData = response.data;
+      $scope.smartTableData1 = response.data;
+
+  
+         
+          for(var i = 0; i < $scope.smartTableData.length; i++){
+              var balance = $scope.smartTableData[i].balance;
+              custTotal += balance;
+          }
+
+        
+
+          $scope.charts[1] =  {
+            color: pieColor,
+            description: 'Customer Funds',
+            stats: '$ ' + custTotal,
+            icon: 'money',
+          };
+
+
+       $timeout(function () {
+      loadPieCharts();
+      updatePieCharts();
+        }, 1000);
+     
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log('failed');
+      return 5;
+    });
+
+    $http.get('/api/Customer').then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+      console.log('success');
+
+      $scope.customerData = response.data
+      customerAccounts = $scope.customerData.length;
+      $scope.charts[0] =  {
+            color: pieColor,
+            description: 'Accounts',
+            stats: customerAccounts,
+            icon: 'person',
+      };
+
+      $timeout(function () {
+      loadPieCharts();
+      updatePieCharts();
+        }, 1000);
+
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log('failed');
+    });
+
+
+    $http.get('/api/Purchase').then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+      console.log('success');
+      
+
+      $scope.purchaseData = response.data;
+
+      for(var i = 0; i < $scope.purchaseData.length; i++){
+          var price = $scope.purchaseData[i].price;
+          purchases += price;
+      }
+
+      console.log(purchases)
+
+          $scope.charts[2] =  {
+            color: baConfig.colors.successLight,
+            description: 'Daily Transactions',
+            stats: $scope.purchaseData.length,
+            icon: 'refresh',
+          };
+
+          $scope.charts[3] =  {
+            color: baConfig.colors.successLight,
+            description: 'Est. Revenue',
+            stats: '$ ' + purchases,
+            icon: 'money',
+          };
+
+
+
+       $timeout(function () {
+      loadPieCharts();
+      updatePieCharts();
+        }, 1000);
+     
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log('failed');
+      return 5;
+    });
+
+    $http.get('/api/Customer').then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+      console.log('success');
+
+      $scope.customerData = response.data
+      customerAccounts = $scope.customerData.length;
+      $scope.charts[0] =  {
+            color: pieColor,
+            description: 'Accounts',
+            stats: customerAccounts,
+            icon: 'person',
+      };
+
+      $timeout(function () {
+      loadPieCharts();
+      updatePieCharts();
+        }, 1000);
+
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log('failed');
+    });
+
 
     function getRandomArbitrary(min, max) {
       return Math.random() * (max - min) + min;
@@ -67,9 +207,9 @@
       });
     }
 
-    $timeout(function () {
-      loadPieCharts();
-      updatePieCharts();
-    }, 1000);
+    // $timeout(function () {
+    //   loadPieCharts();
+    //   updatePieCharts();
+    // }, 1000);
   }
 })();
