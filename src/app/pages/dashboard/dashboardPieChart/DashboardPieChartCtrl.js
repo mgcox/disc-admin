@@ -57,6 +57,8 @@
               custTotal += balance;
           }
 
+
+          custTotal = Math.round(custTotal)
         
 
           $scope.charts[1] =  {
@@ -118,6 +120,7 @@
           purchases += price;
       }
 
+       purchases = Math.round(purchases)
       console.log(purchases)
 
           $scope.charts[2] =  {
