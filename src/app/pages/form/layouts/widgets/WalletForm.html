@@ -1,0 +1,17 @@
+<form>
+    <div class="ng-cloak" ng-controller="WalletFormCtrl as walletFormVM">
+      <div class="form-group">
+        <label for="customerID">Wallet ID</label>
+        <input type="text" class="form-control" id="walletID" placeholder="Wallet ID">
+      </div>
+      <div class="form-group">
+        <label for="username">Balance</label>
+        <input type="double" class="form-control" id="balance" placeholder="Balance">
+      </div>
+      <div class="form-group">
+        <label for="owner">Owner</label>
+        <input type="text" class="form-control" id="owner" placeholder="Existing Customer ID">
+      </div>
+      <button ng-click="submitWallet()" type="submitWallet" class="btn btn-warning">Create Wallet</button>
+    </div>
+</form>

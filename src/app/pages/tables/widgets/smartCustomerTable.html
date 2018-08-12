@@ -1,0 +1,42 @@
+<div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>Rows on page
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [10,35,50,100]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="customerData" st-safe-src="customerData1">
+    <thead>
+    <tr class="sortable ">
+      <th class="table-id" st-sort="customerID" st-sort-default="true">Customer ID</th>
+      <th st-sort="email">Email</th>
+      <th st-sort="username">Username</th>
+      <th st-sort="accountStatus">Status</th>
+    </tr>
+    <tr>
+      <th><input st-search="customerID" placeholder="Search Id" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="username" placeholder="Search Username" class="input-sm form-control search-input"
+                 type="search"/></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in customerData">
+      <td class="table-id">{{item.customerID}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.username}}</td>
+      <td>{{item.accountStatus}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
