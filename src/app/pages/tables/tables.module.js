@@ -21,19 +21,26 @@
             icon: 'ion-grid',
             order: 300,
           },
-        }).state('tables.basic', {
-          url: '/basic',
-          templateUrl: 'app/pages/tables/basic/tables.html',
-          title: 'Data Tables',
-          sidebarMeta: {
-            order: 0,
-          },
         }).state('tables.smart', {
           url: '/smart',
           templateUrl: 'app/pages/tables/smart/tables.html',
-          title: 'Smart Tables',
+          title: 'Wallet Table',
           sidebarMeta: {
-            order: 100,
+            order: 0,
+          },
+        }).state('tables.purchase', {
+          url: '/purchase',
+          templateUrl: 'app/pages/tables/purchase/tables.html',
+          title: 'Purchase Table',
+          sidebarMeta: {
+            order: 2,
+          },
+        }).state('tables.basic', {
+          url: '/basic',
+          templateUrl: 'app/pages/tables/basic/tables.html',
+          title: 'Customer Table',
+          sidebarMeta: {
+            order: 1,
           },
         });
     $urlRouterProvider.when('/tables','/tables/basic');

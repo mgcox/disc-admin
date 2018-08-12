@@ -13,7 +13,7 @@
 
 
 
-    $scope.smartTablePageSize = 20;
+    $scope.smartTablePageSize = 35;
 
     $http.get('/api/Wallet').then(function successCallback(response) {
     // this callback will be called asynchronously
@@ -48,11 +48,30 @@
       console.log('success');
 
       $scope.customerData = response.data
+      $scope.customerData1 = response.data
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
       console.log('failed');
     });
+
+
+
+    $http.get('/api/Purchase').then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+      console.log('success');
+      
+
+      $scope.purchaseData = response.data;
+      $scope.purchaseData1 = response.data;
+     
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log('failed');
+    });
+
 
     $scope.peopleTableData = [
       {

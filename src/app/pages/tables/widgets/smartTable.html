@@ -2,7 +2,7 @@
   <div class="form-group select-page-size-wrap ">
     <label>Rows on page
       <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
-              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+              ng-model="smartTablePageSize" ng-options="i for i in [10,35,50,100]">
       </select>
     </label>
   </div>
@@ -17,9 +17,9 @@
     <tr>
       <th><input st-search="walletId" placeholder="Search Wallet Id" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="balance" placeholder="Search Last Name" class="input-sm form-control search-input"
+      <th><input st-search="balance" placeholder="Search Balance" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="owner" placeholder="Search Username" class="input-sm form-control search-input"
+      <th><input st-search="owner" placeholder="Search Customer Id" class="input-sm form-control search-input"
                  type="search"/></th>
     </tr>
     </thead>
@@ -27,7 +27,7 @@
     <tr ng-repeat="item in smartTableData">
       <td class="table-id">{{item.walletId}}</td>
       <td>{{item.balance}}</td>
-      <td>{{item.owner}}</td>
+      <td>{{item.owner.replace('resource:com.disc.businessNetwork.', '')}}</td>
     </tr>
     </tbody>
     <tfoot>

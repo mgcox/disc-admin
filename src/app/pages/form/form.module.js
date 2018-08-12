@@ -21,14 +21,14 @@
             order: 250,
           },
         })
-        .state('form.inputs', {
-          url: '/inputs',
-          templateUrl: 'app/pages/form/inputs/inputs.html',
-          title: 'Form Inputs',
-          sidebarMeta: {
-            order: 0,
-          },
-        })
+        // .state('form.inputs', {
+        //   url: '/inputs',
+        //   templateUrl: 'app/pages/form/inputs/inputs.html',
+        //   title: 'Form Inputs',
+        //   sidebarMeta: {
+        //     order: 0,
+        //   },
+        // })
         .state('form.layouts', {
           url: '/layouts',
           templateUrl: 'app/pages/form/layouts/layouts.html',
@@ -39,16 +39,16 @@
             order: 100,
           },
         })
-        .state('form.wizard',
-        {
-          url: '/wizard',
-          templateUrl: 'app/pages/form/wizard/wizard.html',
-          controller: 'WizardCtrl',
-          controllerAs: 'vm',
-          title: 'Form Wizard',
-          sidebarMeta: {
-            order: 200,
-          },
-        });
+        // .state('form.wizard',
+        // {
+        //   url: '/wizard',
+        //   templateUrl: 'app/pages/form/wizard/wizard.html',
+        //   controller: 'WizardCtrl',
+        //   controllerAs: 'vm',
+        //   title: 'Form Wizard',
+        //   sidebarMeta: {
+        //     order: 200,
+        //   },
+        // });
   }
 })();
