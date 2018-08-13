@@ -16,8 +16,8 @@
     vm.statusSelectItems = [
       {label: 'Active', value: "ACTIVE"},
       {label: 'Flagged', value: 2},
-      {label: 'WARN', value: 3},
-      {label: 'Deactivated", value: 4}
+      {label: 'Quarantine', value: 3},
+      {label: 'Warn', value: 4}
     ];
 
 
