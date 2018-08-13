@@ -1,0 +1,52 @@
+<div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>Rows on page
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [10,35,50,100]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="purchaseData" st-safe-src="purchaseData1">
+    <thead>
+    <tr class="sortable ">
+      <th class="table-id" st-sort="timestamp" st-sort-default="true">TimeStamp</th>
+      <th st-sort="price">Price</th>
+      <th st-sort="tax">Tax</th>
+      <th st-sort="customerWallet">Wallet ID</th>
+      <th st-sort="storeWallet">Store ID</th>
+      <th st-sort="transactionId">Transaction ID</th>
+    </tr>
+    <tr>
+      <th><input st-search="timestamp" placeholder="Search TimeStamp" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="price" placeholder="Search Price" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="tax" placeholder="Search Tax" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="customerWallet" placeholder="Search Customer" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="storeWallet" placeholder="Search Store" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="transactionId" placeholder="Search Transaction" class="input-sm form-control search-input"
+           type="search"/></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in purchaseData">
+      <td class="table-id">{{item.timestamp}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.tax}}</td>
+      <td>{{item.customerWallet.replace('resource:com.disc.businessNetwork.', '')}}</td>
+      <td>{{item.storeWallet.replace('resource:com.disc.businessNetwork.', '')}}</td>
+      <td>{{item.transactionId}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
