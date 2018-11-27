@@ -34,9 +34,10 @@
       console.log('purchase successful');
 
       // $scope.customerData = response.data
-      // customerID.value = ""
-      // username.value = ""
-      // email.value = ""
+       customerWalletID.value = ""
+      storeID.value = ""
+       price.value = ""
+       tax.value = ""
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
